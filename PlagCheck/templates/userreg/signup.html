@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Total Plagiarism Checker- Signup</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/static/style_signup.css"/>
+    <script src="/static/jqry2.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+</head>
+
+<body>
+  <div class="login-page">
+      <div class="container" style="display:{% if data %}block{% else %}none{% endif %};border: 2px solid transparent;margin: 1.2%;margin-left:0%;background-color:{%if col_code == '1' %}green{% else %}red{% endif %};">
+            <span class="text-white" style="margin-left:90%; cursor: pointer;" id="close_res"><b>X</b></span>
+            <p class="text-justify text-white">{{data}}</p>
+        </div>
+  <div class="form">
+      <p align=center><font face="Arial" color=#2ECC71><b>Total Plagiarism Checker</b>- Signup</font></p>
+  
+    <form class="login-form" action="/userreg/register" method="post" enctype="multipart/form-data">
+        {% load widget_tweaks %}
+                                    {% csrf_token %}
+                                    {{ form.non_field_errors }}
+
+                                     {{ form.fst_name.errors }}
+                                     {% render_field form.usr_name class+="form-control text-info" placeholder='Enter Name' %}
+                                     <br/>
+                                     {{ form.lst_name.errors }}
+                                     {% render_field form.eml class+="form-control text-info" placeholder='Enter Email'%}
+                                     <br/>
+                                     {{ form.eml.errors }}
+                                     {% render_field form.pss class+="form-control text-info" placeholder='Enter Password'%}
+                                     <br/>
+                                     <input id="usr_pss_re" type="password" class="form-control text-info" name="pss_chk" placeholder="Re-enter Password"/>
+                                     <br/>
+      <button type="submit" name="submit" value="create account">Register</button>
+      
+    </form>
+      <p class="message">Already registered? <a href="/userlogin">Click here to login</a></p>
+  </div>
+</div>
+
+</body>
+</html>

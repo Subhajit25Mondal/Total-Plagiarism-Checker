@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>Bootstrap Test Page</title>
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0"> 
+        <meta charset="UTF-8">
+        <meta name="description" content="First Bootstrap Page"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="/static/Startpage.css"/>
+    </head>
+<body>
+     <div id="mid_cont" class="container-fluid" style="background-image:url(/static/back.jpg);height:100%;">
+
+         <div class="row" style="padding:2%">
+                 <div class="col-md-4" style="border: 2px solid transparent;"></div>
+                 <div class="col-md-4" style="border: 2px solid transparent;">
+                      <img src="/static/pylogo.png" alt="Site Logo" height="200" width="200"/>
+                      <h3 id="log_txt">Doc Check!</h3>
+                 </div>
+                 <div class="col-md-4" style="border: 2px solid transparent;"></div>
+          </div>
+         <div class="container" style="display:{% if file_url %}block{% else %}none{% endif %};border: 2px solid transparent;margin: 5.2%;background-color:{%if col_code == '1' %}green{% else %}red{% endif %};">
+            <span class="text-white" style="margin-left:90%; cursor: pointer;" id="close_res"><b>X</b></span>
+            <p class="text-justify text-white" style="margin-left:42%;">{{ file_url }}</p>
+        </div>
+         <div class="row" style="padding:2%;">
+                 <div class="col-md-4" style="border: 2px solid transparent;"></div>
+                 <div class="col-md-4" style="border: 2px solid transparent;">
+                     {% block content %}
+                     <form action="/docchecker/getres" method="post" enctype="multipart/form-data">
+                        <div class="card" style="border: 1px solid navy;box-shadow: 2px 2px 2px black, 0 0 5px darkslategray;">
+                             <div class="card-header" style="color:yellow;font-family:'Consolas','Monaco';background-color:rgba(71,97,172,0.8);">FileUpload</div>
+                             <div class="card-body" style="background-color:whitesmoke;">
+                                <div class="form-group">
+                                    {% csrf_token %}
+                                    <label for="upl_doc"><i><b>Upload Doc</b></i></label>
+                                     <input type="file" name="myfile" id="upl_doc"/>
+                                     <br/>
+                                </div>
+                              </div>
+                              <div class="card-footer" style="color:yellow;font-family:'Consolas','Monaco';background-color:rgba(71,97,172,0.8);">
+                                  <button type="submit" class="btn btn-outline-warning btn-sm float-right mr-2">Upload</button>
+                              </div>
+                        </div>
+                     </form>
+                     {% endblock %}
+                 </div>
+                 <div class="col-md-4" style="border: 2px solid transparent;">{{ file_url }}</div>
+          </div>
+    </div>
+</body>
+</html>

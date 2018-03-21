@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Total Plagiarism Checker- Login</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/static/style_signup.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+    <script src="/static/jqry2.js"></script>
+</head>
+
+<body background="images/wall.jpg">
+    
+    
+     
+  <div class="login-page">
+      <div class="container" style="display:{% if data %}block{% else %}none{% endif %};border: 2px solid transparent;margin: 1.2%;margin-left:0%;background-color:{%if col_code == '1' %}green{% else %}red{% endif %};">
+            <span class="text-white" style="margin-left:90%; cursor: pointer;" id="close_res"><b>X</b></span>
+            <p class="text-justify text-white">{{data}}</p>
+        </div>
+  <div class="form">
+   <p align=center><font face="Arial" color=#2ECC71>Enter your <b>Login Credentials</b></font></p>
+  
+    <form class="login-form" action="/userlogin/verify" method="post">
+        {% csrf_token %}
+      <input type="text" name="eml" placeholder="email"/>
+      <input type="password" name="pss" placeholder="password"/>
+      <button type="submit" value="submit" name="submit">login</button>
+      <p class="message">Not registered? <a href="/userreg">Create an account</a></p>
+    </form>
+  </div>
+</div>
+
+
+</body>
+</html>

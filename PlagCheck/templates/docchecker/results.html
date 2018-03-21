@@ -1,0 +1,36 @@
+<html>
+<head>
+  <title>
+    Plagiarism Results
+  </title>
+  <style>
+  div {
+    position: relative;
+    display: block;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  a {
+    text-decoration: underline;
+    display: inline-block;
+  }
+
+p {
+  display: block;
+}
+
+  </style>
+</head>
+<body>
+  {% block content %}
+  {% for result in results %}
+  <div>
+    Similar links: <a href="{{result.url}}">{{result.url}}</a>
+    <p>Similar text: {{result.text}}</p>
+      <h3>Similarity in vocabulary -:- {{result.voc_sim|stringformat:".5f"}}%</h3>
+  </div>
+  {% endfor %}
+  {% endblock %}
+</body>
+</html>

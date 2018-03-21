@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Total Plagiarism Checker- Results</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		<link rel="stylesheet" href="/static/main.css" />
+		
+	</head>
+	<body>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1>Scan Results</h1>
+						<p></p>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Content -->
+							<section id="content" class="main">
+
+								
+                                
+  <table>                              
+  {% block content %}
+  {% for result in results %}
+  <tr>
+      <td><strong><a href="{{result.url}}">{{result.url}}</a></strong>
+          <p>{{result.text}}</p></td>
+      <td align="right"><a class="button special">Similarity: {{result.voc_sim|stringformat:".5f"}}%</a></td>
+  </tr>
+  {% endfor %}
+  {% endblock %}
+      
+    </table>
+                                
+                                
+                                
+                                
+
+							</section>
+                        <section id="second" class="main special">
+                        
+                        <center><a href="#" class="button">New Plagiarism Scan</a></center>
+                        
+                        
+                        </section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="/static/jquery.min.js"></script>
+			<script src="/static/jquery.scrollex.min.js"></script>
+			<script src="/static/jquery.scrolly.min.js"></script>
+			<script src="/static/skel.min.js"></script>
+			<script src="/static/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="/static/main.js"></script>
+
+	</body>
+</html>

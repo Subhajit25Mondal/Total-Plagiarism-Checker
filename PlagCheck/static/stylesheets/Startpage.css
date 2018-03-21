@@ -1,0 +1,89 @@
+/* 
+    Created on : 25 Feb, 2018, 1:33:49 AM
+    Author     : palashsarkar
+*/
+
+@charset "UTF-8";
+
+body
+{
+        position: relative;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        width: auto;
+        height: auto;
+        margin: 0px;
+        padding: 0px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        border: 2px solid gray;
+        display: block;
+}
+
+div#upper_cont
+          {
+                     margin: 0%;
+                     padding: 0%;
+                     border: 2px solid darkslategray;
+                     background-color: darkslategray;
+                     overflow: hidden;
+          }
+          
+   div#mid_cont
+          {
+              	margin: 0%;
+              	padding-top: 2%;
+              	padding-bottom: 2%;
+              	padding-right: 0%;
+              	padding-left: 0%;
+              	border: 2px solid darkslategray;
+              	background-color: lightgray;
+              	background: none;
+              	background-size: cover;
+              	background-repeat: no-repeat;
+              	background-position: center;
+              	background-clip: border-box;
+              	overflow: hidden; 
+          }
+          
+          
+          
+   h3#log_txt
+          {
+               padding-top: 2%;
+               padding-bottom: 2%;
+               padding-left: 5%;
+               padding-right: 5%;
+               font-family: 'Tahoma';
+               letter-spacing: 1px;
+               font-size: 22px;
+               margin-left: 45%;
+               margin-right: 10%;
+               margin-top: -12%;
+               margin-bottom: 1%;
+               color: whitesmoke;
+               float: left;
+               text-shadow: 2px 2px 2px black, 0 0 25px yellow, 2px 2px 5px black;
+               border: 1px solid transparent;
+               background: transparent;
+               display: imline-block;
+               overflow: visible;
+         }
+
+     span.tgrs
+          {
+               background-color: transparent
+               background-image: none;
+               background-size: 50%;
+               background-repeat: no-repeat;
+               background-position: left;
+               background-clip: border-box;
+               overflow: visible;
+               cursor: pointer;
+          }
+
+     span.tgrs:hover
+          {
+               background-color: darkslategray;
+          }
